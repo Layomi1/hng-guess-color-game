@@ -35,9 +35,10 @@ function resetGame() {
 
     gameStatus.textContent = "";
     gameButton.textContent = "New Game";
-    gameInstruction.textContent = "Guess the correct Background Color!";
+
     colorBox.style.backgroundColor = "transparent";
   });
+  gameInstruction.textContent = "Guess the correct Background Color!";
   gameScore.textContent = count;
 }
 
