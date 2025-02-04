@@ -23,19 +23,22 @@ const gameStatus = document.querySelector('[data-testid="gameStatus"]');
 
 const gameButton = document.querySelector('[data-testid="newGameButton"]');
 let gameScore = document.querySelector('[data-testid="score"]');
+
 let count = 0;
 
+console.log(gameScore.textContent);
 let randomColor = "";
 // add eventlistner to gameButton
 function resetGame() {
   gameButton.addEventListener("click", () => {
     randomColor = colors[Math.floor(Math.random() * colors.length)];
-    gameScore.textContent = count;
+
     gameStatus.textContent = "";
     gameButton.textContent = "New Game";
     gameInstruction.textContent = "Guess the correct Background Color!";
     colorBox.style.backgroundColor = "transparent";
   });
+  gameScore.textContent = count;
 }
 
 function hexToRgb(hex) {
@@ -55,7 +58,7 @@ function handleGuessedBg(e) {
     gameStatus.textContent = "Correct! 🎉";
     gameStatus.classList.add("celebration");
   } else {
-    count = 0;
+    gameScore.textContent = count;
     gameStatus.textContent = "Wrong! ❌ Try again.";
   }
   gameScore.textContent = count;
